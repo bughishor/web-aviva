@@ -1,0 +1,19 @@
+$margin: 30px;
+
+@for $i from 1 through 10 {
+  @for $j from 1 through $i {
+    .box-#{$j}-of-#{$i} {
+      width: calc(99.99% / #{$i} * #{$j} - #{$margin} * (#{$i} - #{$j}) / #{$i});
+    }
+  }
+}
+
+.box-size {
+  float: left;
+  margin: 0 0 $margin $margin;
+}
+
+.box-size-first {
+  float: left;
+  margin: 0 0 $margin 0;
+}

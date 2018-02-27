@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "PrimaryFont";
+  //noinspection CssUnknownTarget
+  src:url("../fonts/frutiger/light_condensed.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "PrimaryFont";
+  //noinspection CssUnknownTarget
+  src:url("../fonts/frutiger/light.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "PrimaryFont";
+  //noinspection CssUnknownTarget
+  src:url("../fonts/frutiger/standard.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "PrimaryFont";
+  //noinspection CssUnknownTarget
+  src:url("../fonts/frutiger/bold.ttf");
+  font-weight: 600;
+}
+
+$primaryFont: PrimaryFont, sans-serif;
+
+[class^="icon-"], [class*="icon-"] {
+  line-height: 1;
+  display: inline-block;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $primaryFont;
+}
+
+p, span {
+  color: $font;
+  font-family: $primaryFont;
+  font-size: 18px;
+  font-weight: 400;
+  &.default {
+    font-family: Arial, sans-serif;
+  }
+  &.title {
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    padding: 40px 0;
+    @include small-screens {
+      padding: 30px 0;
+      font-size: 16px;
+    }
+  }
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  color: $colour_2;
+  text-decoration: none;
+  font-family: $primaryFont;
+  font-weight: 400;
+  &._u {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

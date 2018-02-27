@@ -1,0 +1,57 @@
+@import "subfiles/mixins";
+@import "subfiles/colors";
+@import "subfiles/grid";
+@import "subfiles/typo";
+@import "subfiles/buttons";
+@import "subfiles/header";
+@import "subfiles/banners";
+@import "subfiles/modules";
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: none;
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  background: $background;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.wrap {
+  width: 1440px;
+  margin: 0 auto;
+  @include laptop-screen {
+    width: 100%;
+  }
+}
+
+.wrap-small {
+  width: 964px;
+  margin: 0 auto;
+  @include small-screens {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+.clear {
+  &:before {
+    content: " ";
+    height: 0;
+    clear: both;
+    display: block;
+  }
+  &:after {
+    content: " ";
+    height: 0;
+    display: block;
+    clear: both;
+  }
+}

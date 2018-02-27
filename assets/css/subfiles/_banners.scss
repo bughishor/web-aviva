@@ -1,0 +1,66 @@
+.main-banner {
+  //noinspection CssUnknownTarget
+  background: url("../img/aviva-main-banner.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: calc(100vh - 65px);
+  @include flex-fully-centered;
+  @include flex-direction(column);
+  h1, h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  h2 {
+    font-size: 76px;
+    font-weight: 300;
+  }
+  @include small-screens {
+    height: calc(100vh - 52px);
+    background-position: center;
+    h1 {
+      font-size: 18px;
+    }
+    h2 {
+      font-size: 32px;
+    }
+  }
+}
+
+.video-banner {
+  height: 600px;
+  //noinspection CssUnknownTarget
+  background: url("../img/video-banner.jpg");
+  background-size: cover;
+  @include flex-fully-centered;
+  i {
+    background: $colour_1;
+    color: $light;
+    padding: 22px;
+    border-radius: 100%;
+    font-size: 35px;
+    transition: 0.2s ease all;
+    &:before {
+      left: 2px;
+      position: relative;
+    }
+    &:hover {
+      cursor: pointer;
+      background: $colour_2;
+      transform: scale(1.2);
+    }
+  }
+  @include small-screens {
+    height: 400px;
+  }
+  @include mobile {
+    height: 180px;
+    i {
+      padding: 10px;
+      font-size: 24px;
+    }
+  }
+}

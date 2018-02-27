@@ -1,0 +1,460 @@
+.square-box {
+  background: $colour_1;
+  padding: 15px;
+  @include flex-fully-centered;
+  @include flex-direction(column);
+  min-height: 300px;
+  p {
+    text-align: center;
+    color: $colour_2;
+  }
+  > ._circle {
+    position: absolute;
+    left: calc(50% - 17px);
+    bottom: 35px;
+  }
+  @include mobile {
+    font-size: 10px;
+  }
+}
+
+.bundle-box {
+  .top {
+    height: 300px;
+  }
+  .bottom {
+    height: 100px;
+    background: $colour_1;
+    @include flex-fully-centered;
+    > a {
+      span {
+        color: $colour_2;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 16px;
+        margin-right: 20px;
+        top: 2px;
+      }
+    }
+  }
+  @include mobile {
+    .bottom {
+      height: 70px;
+    }
+  }
+}
+
+.promo-top {
+  @include flexbox;
+  @include small-screens {
+    display: block;
+    #mobile_app {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .square-box {
+      margin: 0 0 10px 0;
+      width: 100%;
+    }
+  }
+}
+
+#mobile_app {
+  //noinspection CssUnknownTarget
+  background: url("../img/tyre-marks.jpg");
+  .text {
+    padding: 25px;
+    max-width: 325px;
+    p {
+      margin-bottom: 30px;
+      font-size: 20px;
+      &.default {
+        font-size: 16px;
+      }
+    }
+    > div {
+      @include flexbox;
+      @include align-items(center);
+      > a:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  > img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  @include mobile {
+    .text {
+      max-width: 100%;
+      p {
+        font-size: 18px;
+        &.default {
+          font-size: 16px;
+        }
+      }
+    }
+    > img {
+      display: none;
+    }
+  }
+}
+
+.promo-bottom {
+  @include flexbox;
+  ._left .bundle-box {
+    margin-bottom: 30px;
+    .top {
+      //noinspection CssUnknownTarget
+      background: url("../img/bundle_1.jpg");
+      background-position: center;
+    }
+  }
+  ._right {
+    @include flexbox;
+    @include flex-direction(column);
+    ._bottom {
+      flex: 1;
+      @include flexbox;
+      > div {
+        margin-bottom: 0;
+      }
+      .bundle-box .top {
+        //noinspection CssUnknownTarget
+        background: url("../img/bundle_2.jpg");
+        background-position: center;
+      }
+    }
+  }
+  @include small-screens {
+    display: block;
+    ._left {
+      width: 100%;
+      @include flexbox;
+      margin-bottom: 10px;
+      .bundle-box {
+        margin: 0 10px 0 0;
+        flex-basis: 300px;
+      }
+      .square-box {
+        flex: 1;
+      }
+    }
+    ._right {
+      margin: 0;
+      width: 100%;
+      #review_box {
+        margin-bottom: 10px;
+      }
+      ._bottom {
+        margin-bottom: 30px;
+        .bundle-box {
+          margin-left: 10px;
+          flex-basis: 300px;
+        }
+      }
+    }
+  }
+  @include mobile {
+    display: block;
+    ._left {
+      display: block;
+      .bundle-box {
+        margin-bottom: 10px;
+        margin-right: 0;
+        .top {
+          background-size: cover;
+        }
+      }
+    }
+    ._right {
+      ._bottom {
+        display: block;
+        #info_1 {
+          width: 100%;
+        }
+        .bundle-box {
+          width: 100%;
+          margin: 10px 0 0 0;
+          .top {
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+#review_box {
+  background: $colour_2;
+  padding: 20px;
+  height: 300px;
+  margin-bottom: 30px;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(flex-end);
+  @include flex-direction(column);
+  .list {
+    overflow: hidden;
+    > ul {
+      @include flexbox;
+      > li {
+        min-width: 100%;
+        @include flex-fully-centered;
+        @include flex-direction(column);
+        > p {
+          color: white;
+          text-align: center;
+          max-width: 350px;
+          &.author {
+            font-size: 14px;
+            margin-top: 20px;
+            @include mobile {
+              font-size: 12px;
+              padding-top: 20px;
+              border-top: 1px solid rgba($light, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
+  .reviews-controls {
+    margin-top: 20px;
+    padding: 20px;
+    width: 175px;
+    border-top: 1px solid rgba($light, 0.2);
+    @include flex-fully-centered;
+    i {
+      color: $colour_2;
+      margin-left: 10px;
+      transition: 0.2s ease all;
+      &:hover {
+        cursor: pointer;
+        background: $colour_1;
+      }
+      &.reverse {
+        margin-right: 10px;
+        margin-left: 0;
+      }
+    }
+  }
+  @include mobile {
+    .reviews-controls {
+      margin-top: 0;
+      border-top: none;
+      padding: 15px;
+    }
+  }
+}
+
+#info_1 {
+  background: $colour_3;
+  padding: 50px 30px 40px;
+  flex: 1;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-between);
+  @include align-items(center);
+  p, i {
+    color: $light;
+    text-align: center;
+    font-size: 18px;
+  }
+  i {
+    font-size: 60px;
+  }
+  > a {
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    &:hover {
+      color: $colour_1;
+    }
+  }
+  @include mobile {
+    padding: 60px 35px 30px;
+    i {
+      font-size: 50px;
+      margin-bottom: 25px;
+    }
+    p {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.features-list {
+  @include flexbox;
+  margin-bottom: 60px;
+  > li {
+    flex: 1;
+    margin-right: 30px;
+    overflow: hidden;
+    &:last-child {
+      margin-right: 0;
+    }
+    .img {
+      height: 325px;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
+        transition: 0.3s ease all;
+      }
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
+    .text {
+      background: $light;
+      width: 100%;
+      padding: 30px 20px 40px;
+      > a {
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 30px;
+        display: block;
+        &:hover {
+          color: $colour_3;
+        }
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+  @include small-screens {
+    margin: 0 -10px 30px;
+    overflow: scroll;
+    > li {
+      margin-right: 0;
+      margin-left: 10px;
+      min-width: 275px;
+      .img {
+        height: 310px;
+        img {
+          max-width: none;
+          min-width: 100%;
+          max-height: none;
+          width: auto;
+        }
+      }
+    }
+  }
+  @include mobile {
+    > li {
+      .text {
+        padding: 25px 20px;
+        > a {
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+}
+
+#sitemap {
+  background: $dark;
+  padding: 60px 0;
+  .links {
+    @include flexbox;
+    > li {
+      flex: 1;
+      p.top {
+        color: $light;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        i {
+          display: none;
+        }
+      }
+      > ul {
+        > li a {
+          color: $light;
+          font-size: 13px;
+          font-family: Arial, sans-serif;
+          line-height: 25px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      &.social {
+        > div {
+          @include flexbox;
+          @include align-items(center);
+          > a {
+            border: 1px solid $light;
+            color: $light;
+            border-radius: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-right: 15px;
+            transition: 0.2s ease all;
+            &:hover {
+              background: $light;
+              color: $darker;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include small-screens {
+    padding: 30px 10px;
+    .links > li {
+      flex: auto;
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+  @include mobile {
+    padding: 0;
+    .links {
+      display: block;
+      margin: 0 -10px;
+      > li {
+        border-top: 1px solid rgba($light, 0.04);
+        padding: 20px 25px;
+        p.top {
+          margin-bottom: 0;
+          @include flexbox;
+          @include align-items(center);
+          @include justify-content(space-between);
+          i {
+            display: block;
+            color: $light;
+            font-size: 16px;
+          }
+        }
+        &:first-child {
+          border-top: none;
+        }
+        > ul {
+          display: none;
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: $darker;
+  p {
+    color: #5a5a5a;
+    font-size: 14px;
+    padding: 18px 0;
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+}

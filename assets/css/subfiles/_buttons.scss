@@ -1,0 +1,41 @@
+.primary-button {
+  @include hGrad($colour_1, $colour_1_v2);
+  color: $colour_2;
+  font-family: $primaryFont;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0 50px;
+  @include flex-fully-centered;
+  height: 58px;
+  border-radius: 3px;
+  span {
+    @include flexbox;
+    @include align-items(baseline);
+    height: 16px;
+    color: $colour_2;
+    font-family: $primaryFont;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  &:hover {
+    @include hGrad($light, $light);
+  }
+  @include small-screens {
+    padding: 0 30px;
+  }
+}
+
+._circle {
+  border-radius: 100%;
+  background: $light;
+  transition: 0.5s ease all;
+  padding: 10px;
+  font-size: 15px;
+  &.icon-plus:hover {
+    transform: rotate(360deg);
+  }
+  &.reverse {
+    transform: rotate(180deg);
+  }
+}

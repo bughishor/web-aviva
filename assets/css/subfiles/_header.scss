@@ -1,0 +1,103 @@
+header {
+  background: $light;
+  height: 65px;
+  .wrap {
+    height: 100%;
+    @include flexbox;
+    .mobile-trigger {
+      display: none;
+    }
+    .logo {
+      @include flex-fully-centered;
+      background: $colour_1;
+      height: 100%;
+      padding: 0 40px;
+    }
+    nav {
+      flex: 1;
+      > ul {
+        @include flexbox;
+        @include align-items(center);
+        height: 100%;
+        > li {
+          &:nth-child(2) {
+            margin-right: auto;
+          }
+          a {
+            font-family: $primaryFont;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.1s linear color;
+            padding: 0 40px;
+            height: 35px;
+            @include flex-fully-centered;
+            i {
+              transition: 0.1s linear color;
+              font-size: 20px;
+              color: $colour_2;
+            }
+            span {
+              transition: 0.1s linear color;
+              font-family: $primaryFont;
+              font-weight: 600;
+              text-transform: uppercase;
+              font-size: 14px;
+              color: $colour_2;
+              @include flexbox;
+              @include align-items(baseline);
+              i {
+                margin-right: 10px;
+              }
+            }
+            &:hover {
+              color: $colour_3;
+              span, i {
+                color: $colour_3;
+              }
+            }
+          }
+          &.divide {
+            margin-right: 3px;
+            &:after {
+              //noinspection CssUnknownTarget
+              content: url('../img/divider.png');
+              display: inline-block;
+              position: absolute;
+              left: 100%;
+              top: 0;
+              opacity: 0.4;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include small-screens {
+    height: 52px;
+    .wrap {
+      .mobile-trigger {
+        width: 52px;
+        @include flex-fully-centered;
+        font-size: 22px;
+        color: $colour_2;
+      }
+      .logo {
+        padding: 0 15px;
+      }
+      nav > ul > li {
+        display: none;
+        &:nth-child(3) {
+          display: block;
+          margin-left: auto;
+          a {
+            padding: 0 20px;
+          }
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+// Mobile screen
+@mixin mobile {
+  @media only screen and (max-width: 639px) {
+    @content;
+  }
+}
+
+// Landscape tablets and small screen monitors - landscape tablets should have same UX/UI as small screens on desktop
+@mixin small-screens {
+  @media only screen and (max-width: 984px) {
+    @content;
+  }
+}
+
+// Normal Monitors
+@mixin laptop-screen {
+  @media only screen and (max-width: 1441px) {
+    @content;
+  }
+}
+
+// Custom landscape
+@mixin landscape {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin hGrad($colour1, $colour2) {
+  background: $colour1; /* Old browsers */
+  background: -moz-linear-gradient(left, $colour1 0%, $colour2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, $colour1 0%, $colour2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, $colour1 0%, $colour2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+// FLEXBOX MIXINS FOR CROSS-BROWSER USE
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: flex;
+}
+
+@mixin flex-flow($values: (row nowrap)) {
+  // No Webkit Box fallback.
+  -moz-flex-flow: $values;
+  -webkit-flex-flow: $values;
+  -ms-flex-flow: $values;
+  flex-flow: $values;
+}
+
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -ms-flex-pack: end;
+    -webkit-box-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -moz-justify-content: $value;
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  align-items: $value;
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+}
+
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+  }
+  flex-direction: $value;
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+}
+
+@mixin flex-fully-centered {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+}
+
+@mixin flexbox-i {
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+}
